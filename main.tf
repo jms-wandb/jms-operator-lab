@@ -40,7 +40,7 @@ provider "helm" {
 }
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "4.10.2"
+  version = "4.21.6"
 
   license              = var.wandb_license
   namespace            = var.namespace
@@ -57,7 +57,7 @@ module "wandb_infra" {
   database_sort_buffer_size      = var.database_sort_buffer_size
   allowed_inbound_cidr           = var.allowed_inbound_cidr
   allowed_inbound_ipv6_cidr      = ["::/0"]
-  eks_cluster_version            = "1.25"
+  eks_cluster_version            = "1.28"
   kubernetes_public_access       = true
   kubernetes_public_access_cidrs = ["0.0.0.0/0"]
   domain_name                    = var.domain_name
@@ -72,6 +72,8 @@ module "wandb_infra" {
   system_reserved_ephemeral_megabytes = var.system_reserved_ephemeral_megabytes
   system_reserved_pid                 = var.system_reserved_pid
   aws_loadbalancer_controller_tags    = var.aws_loadbalancer_controller_tags
+
+
 }
 output "url" {
   value = module.wandb_infra.url
