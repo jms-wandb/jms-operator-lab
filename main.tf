@@ -10,12 +10,15 @@ provider "aws" {
     }
   }
 }
+
 data "aws_eks_cluster" "app_cluster" {
   name = module.wandb_infra.cluster_id
 }
+
 data "aws_eks_cluster_auth" "app_cluster" {
   name = module.wandb_infra.cluster_id
 }
+
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.app_cluster.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.app_cluster.certificate_authority[0].data)
@@ -26,6 +29,7 @@ provider "kubernetes" {
     command     = "aws"
   }
 }
+
 provider "helm" {
   kubernetes {
     host                   = data.aws_eks_cluster.app_cluster.endpoint
@@ -38,6 +42,7 @@ provider "helm" {
     }
   }
 }
+
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
   version = "4.21.6"
@@ -72,27 +77,32 @@ module "wandb_infra" {
   system_reserved_ephemeral_megabytes = var.system_reserved_ephemeral_megabytes
   system_reserved_pid                 = var.system_reserved_pid
   aws_loadbalancer_controller_tags    = var.aws_loadbalancer_controller_tags
-
-
 }
+
 output "url" {
   value = module.wandb_infra.url
 }
+
 output "bucket_name" {
   value = module.wandb_infra.bucket_name
 }
+
 output "bucket_queue_name" {
   value = module.wandb_infra.bucket_queue_name
 }
+
 output "database_instance_type" {
   value = module.wandb_infra.database_instance_type
 }
+
 output "eks_node_instance_type" {
   value = module.wandb_infra.eks_node_instance_type
 }
+
 output "redis_instance_type" {
   value = module.wandb_infra.redis_instance_type
 }
+
 output "standardized_size" {
   value = var.size
 }
