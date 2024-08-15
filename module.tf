@@ -1,6 +1,6 @@
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "4.21.6"
+  version = "4.22.3"
 
   license              = var.wandb_license
   namespace            = var.namespace
@@ -23,8 +23,8 @@ module "wandb_infra" {
   domain_name                    = var.domain_name
   zone_id                        = var.zone_id
   subdomain                      = var.subdomain
-  # bucket_name                         = var.bucket_name
-  # bucket_kms_key_arn                  = var.bucket_kms_key_arn
+  bucket_name                         = var.bucket_name
+  bucket_kms_key_arn                  = var.bucket_kms_key_arn
   use_internal_queue                  = true
   size                                = var.size
   system_reserved_cpu_millicores      = var.system_reserved_cpu_millicores
