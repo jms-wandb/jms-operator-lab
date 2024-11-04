@@ -10,6 +10,11 @@ module "wandb_infra" {
   enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
+  other_wandb_env = merge({
+    "ENABLE_REGISTRY_UI" : "true",
+    "GORILLA_CORS_ORIGINS": "https://wandb.gov.united.anduril.dev\\,null"
+  }, var.other_wandb_env)
+
   deletion_protection            = false
   database_instance_class        = var.database_instance_class
   database_engine_version        = var.database_engine_version
