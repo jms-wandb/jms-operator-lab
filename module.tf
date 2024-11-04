@@ -1,6 +1,6 @@
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "4.22.3"
+  version = "5.0.0"
 
   license              = var.wandb_license
   namespace            = var.namespace
@@ -10,10 +10,10 @@ module "wandb_infra" {
   enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
-  # other_wandb_env = merge({
-  #   "ENABLE_REGISTRY_UI" : "true",
-  #   "GORILLA_CORS_ORIGINS": "https://wandb.gov.united.anduril.dev\\,null"
-  # }, var.other_wandb_env)
+  other_wandb_env = merge({
+    "ENABLE_REGISTRY_UI" : "true",
+    "GORILLA_CORS_ORIGINS": "https://wandb.gov.united.anduril.dev\\,null"
+  }, var.other_wandb_env)
 
   deletion_protection            = false
   database_instance_class        = var.database_instance_class
