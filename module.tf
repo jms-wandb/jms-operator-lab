@@ -27,9 +27,7 @@ module "wandb_infra" {
   enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
-  other_wandb_env = {
-    "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
-    }
+  other_wandb_env = var.other_wandb_env
 
   deletion_protection            = false
   database_instance_class        = var.database_instance_class
