@@ -12,7 +12,7 @@ module "wandb_infra" {
 
   other_wandb_env = merge({
     "ENABLE_REGISTRY_UI" = "true"
-    "GORILLA_CORS_ORIGINS"= "https://jms-op-lab1.jms.wandb.ml\\,null"
+    "GORILLA_CORS_ORIGINS"= "https://jms-op-lab1.jms.wandb.ml,null"
   }, var.other_wandb_env)
 
   deletion_protection            = false
