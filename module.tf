@@ -29,6 +29,8 @@ module "wandb_infra" {
 
   other_wandb_env = var.other_wandb_env
 
+   private_link_allowed_account_ids = var.private_link_allowed_account_ids
+
   deletion_protection            = false
   database_instance_class        = var.database_instance_class
   database_engine_version        = var.database_engine_version
@@ -36,7 +38,7 @@ module "wandb_infra" {
   database_sort_buffer_size      = var.database_sort_buffer_size
   allowed_inbound_cidr           = var.allowed_inbound_cidr
   allowed_inbound_ipv6_cidr      = ["::/0"]
-  eks_cluster_version            = "1.28"
+  eks_cluster_version            = var.eks_cluster_version 
   kubernetes_public_access       = true
   kubernetes_public_access_cidrs = ["0.0.0.0/0"]
   domain_name                    = var.domain_name

@@ -137,3 +137,15 @@ variable "aws_loadbalancer_controller_tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "private_link_allowed_account_ids" {
+  description = "List of AWS account IDs allowed to access the VPC Endpoint Service"
+  type        = list(string)
+  default     = []
+}
+
+variable "eks_cluster_version" {
+  description = "Version of EKS to deploy"
+  type = string
+  default = "1.31"
+}
