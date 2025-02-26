@@ -17,14 +17,14 @@
 
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "4.24.0"
+  version = "7.9.2"
 
   license              = var.wandb_license
   namespace            = var.namespace
   public_access        = true
   external_dns         = true
-  enable_dummy_dns     = true
-  enable_operator_alb  = true
+  # enable_dummy_dns     = true
+  # enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
   other_wandb_env = var.other_wandb_env
