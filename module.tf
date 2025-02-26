@@ -23,13 +23,13 @@ module "wandb_infra" {
   namespace            = var.namespace
   public_access        = true
   external_dns         = true
-  enable_dummy_dns     = true
-  enable_operator_alb  = true
+  # enable_dummy_dns     = true
+  # enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
   other_wandb_env = var.other_wandb_env
 
-   private_link_allowed_account_ids = var.private_link_allowed_account_ids
+  private_link_allowed_account_ids = var.private_link_allowed_account_ids
 
   deletion_protection            = false
   database_instance_class        = var.database_instance_class
