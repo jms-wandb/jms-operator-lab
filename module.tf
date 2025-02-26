@@ -1,30 +1,30 @@
- locals {
-   oidc_envs = {
-    # "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
-    # "OIDC_ISSUER"      = var.oidc_issuer_url
-    # "OIDC_CLIENT_ID"   = okta_app_oauth.wandb.client_id
-    # "OIDC_AUTH_METHOD" = "pkce"
-    "ENABLE_REGISTRY_UI" = true
-    "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
-    #   "GORILLA_USE_IDENTIFIER_CLAIMS" = true
-      #  "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
-  }
-  env_vars = merge(
-    local.oidc_envs,
-    var.other_wandb_env,
-  )
-}
+#  locals {
+#    oidc_envs = {
+#     # "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
+#     # "OIDC_ISSUER"      = var.oidc_issuer_url
+#     # "OIDC_CLIENT_ID"   = okta_app_oauth.wandb.client_id
+#     # "OIDC_AUTH_METHOD" = "pkce"
+#     "ENABLE_REGISTRY_UI" = true
+#     "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
+#     #   "GORILLA_USE_IDENTIFIER_CLAIMS" = true
+#       #  "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
+#   }
+#   env_vars = merge(
+#     local.oidc_envs,
+#     var.other_wandb_env,
+#   )
+# }
 
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "7.9.2"
+  version = "4.24.0"
 
   license              = var.wandb_license
   namespace            = var.namespace
   public_access        = true
   external_dns         = true
-  # enable_dummy_dns     = true
-  # enable_operator_alb  = true
+  enable_dummy_dns     = true
+  enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
   other_wandb_env = var.other_wandb_env
@@ -38,7 +38,7 @@ module "wandb_infra" {
   database_sort_buffer_size      = var.database_sort_buffer_size
   allowed_inbound_cidr           = var.allowed_inbound_cidr
   allowed_inbound_ipv6_cidr      = ["::/0"]
-  eks_cluster_version            = var.eks_cluster_version 
+  eks_cluster_version            = "1.28"
   kubernetes_public_access       = true
   kubernetes_public_access_cidrs = ["0.0.0.0/0"]
   domain_name                    = var.domain_name
