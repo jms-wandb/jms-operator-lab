@@ -103,7 +103,7 @@ variable "allowed_inbound_ipv6_cidr" {
 variable "other_wandb_env" {
   type        = map(string)
   description = "Extra environment variables for W&B"
-  default     = {
+  default = {
     "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
   }
 }
@@ -144,8 +144,8 @@ variable "private_link_allowed_account_ids" {
   default     = []
 }
 
-variable "eks_cluster_version" {
-  description = "Version of EKS to deploy"
-  type = string
-  default = "1.31"
-}
+# variable "eks_cluster_version" {
+#   description = "Version of EKS to deploy"
+#   type = string
+#   default = "1.31"
+# }

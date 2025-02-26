@@ -38,7 +38,7 @@ module "wandb_infra" {
   database_sort_buffer_size      = var.database_sort_buffer_size
   allowed_inbound_cidr           = var.allowed_inbound_cidr
   allowed_inbound_ipv6_cidr      = ["::/0"]
-  eks_cluster_version            = "1.28"
+  eks_cluster_version            = "1.31"
   kubernetes_public_access       = true
   kubernetes_public_access_cidrs = ["0.0.0.0/0"]
   domain_name                    = var.domain_name
