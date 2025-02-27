@@ -144,11 +144,11 @@ variable "private_link_allowed_account_ids" {
   default     = []
 }
 
-# variable "eks_cluster_version" {
-#   description = "Version of EKS to deploy"
-#   type = string
-#   default = "1.31"
-# }
+variable "eks_cluster_version" {
+  description = "Version of EKS to deploy"
+  type = string
+  default = "1.30"
+}
 
 # ##########################################
 # # Operator                               #
