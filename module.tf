@@ -17,23 +17,23 @@
 
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "7.9.2"
+  version = "4.24.0"
 
   license              = var.wandb_license
   namespace            = var.namespace
   public_access        = true
   external_dns         = true
-  # enable_dummy_dns     = true
-  # enable_operator_alb  = true
+  enable_dummy_dns     = true
+  enable_operator_alb  = true
   custom_domain_filter = var.domain_name
 
   other_wandb_env = var.other_wandb_env
 
-  # private_link_allowed_account_ids = var.private_link_allowed_account_ids
+  private_link_allowed_account_ids = var.private_link_allowed_account_ids
 
-  operator_chart_version = var.operator_chart_version
-  controller_image_tag   = var.controller_image_tag
-  enable_helm_release    = var.enable_helm_release
+  # operator_chart_version = var.operator_chart_version
+  # controller_image_tag   = var.controller_image_tag
+  # enable_helm_release    = var.enable_helm_release
 
   deletion_protection            = false
   database_instance_class        = var.database_instance_class

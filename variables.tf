@@ -150,23 +150,23 @@ variable "private_link_allowed_account_ids" {
 #   default = "1.31"
 # }
 
-##########################################
-# Operator                               #
-##########################################
-variable "operator_chart_version" {
-  type        = string
-  description = "Version of the operator chart to deploy"
-  default     = "1.4.0"
-}
+# ##########################################
+# # Operator                               #
+# ##########################################
+# variable "operator_chart_version" {
+#   type        = string
+#   description = "Version of the operator chart to deploy"
+#   default     = "1.4.0"
+# }
 
-variable "controller_image_tag" {
-  type        = string
-  description = "Tag of the controller image to deploy"
-  default     = "1.18.5"
-}
+# variable "controller_image_tag" {
+#   type        = string
+#   description = "Tag of the controller image to deploy"
+#   default     = "1.18.5"
+# }
 
-variable "enable_helm_release" {
-  type        = bool
-  default     = true
-  description = "Enable or disable applying and releasing Helm chart"
-}
+# variable "enable_helm_release" {
+#   type        = bool
+#   default     = true
+#   description = "Enable or disable applying and releasing Helm chart"
+# }
