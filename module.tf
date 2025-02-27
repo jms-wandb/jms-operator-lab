@@ -1,19 +1,19 @@
-#  locals {
-#    oidc_envs = {
-#     # "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
-#     # "OIDC_ISSUER"      = var.oidc_issuer_url
-#     # "OIDC_CLIENT_ID"   = okta_app_oauth.wandb.client_id
-#     # "OIDC_AUTH_METHOD" = "pkce"
-#     "ENABLE_REGISTRY_UI" = true
-#     "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
-#     #   "GORILLA_USE_IDENTIFIER_CLAIMS" = true
-#       #  "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
-#   }
-#   env_vars = merge(
-#     local.oidc_envs,
-#     var.other_wandb_env,
-#   )
-# }
+ locals {
+   oidc_envs = {
+    # "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
+    # "OIDC_ISSUER"      = var.oidc_issuer_url
+    # "OIDC_CLIENT_ID"   = okta_app_oauth.wandb.client_id
+    # "OIDC_AUTH_METHOD" = "pkce"
+    "ENABLE_REGISTRY_UI" = true
+    "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
+    #   "GORILLA_USE_IDENTIFIER_CLAIMS" = true
+      #  "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
+  }
+  env_vars = merge(
+    local.oidc_envs,
+    var.other_wandb_env,
+  )
+}
 
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
@@ -29,7 +29,7 @@ module "wandb_infra" {
 
   other_wandb_env = var.other_wandb_env
 
-  private_link_allowed_account_ids = var.private_link_allowed_account_ids
+  # private_link_allowed_account_ids = var.private_link_allowed_account_ids
 
   # operator_chart_version = var.operator_chart_version
   # controller_image_tag   = var.controller_image_tag
