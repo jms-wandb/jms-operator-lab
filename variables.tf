@@ -150,20 +150,20 @@ variable "eks_cluster_version" {
   default = "1.28"
 }
 
-# ##########################################
-# # Operator                               #
-# ##########################################
-# variable "operator_chart_version" {
-#   type        = string
-#   description = "Version of the operator chart to deploy"
-#   default     = "1.4.0"
-# }
+##########################################
+# Operator                               #
+##########################################
+variable "operator_chart_version" {
+  type        = string
+  description = "Version of the operator chart to deploy"
+  default     = "1.4.0"
+}
 
-# variable "controller_image_tag" {
-#   type        = string
-#   description = "Tag of the controller image to deploy"
-#   default     = "1.18.5"
-# }
+variable "controller_image_tag" {
+  type        = string
+  description = "Tag of the controller image to deploy"
+  default     = "1.18.5"
+}
 
 # variable "enable_helm_release" {
 #   type        = bool

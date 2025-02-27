@@ -31,8 +31,8 @@ module "wandb_infra" {
 
   # private_link_allowed_account_ids = var.private_link_allowed_account_ids
 
-  # operator_chart_version = var.operator_chart_version
-  # controller_image_tag   = var.controller_image_tag
+  operator_chart_version = var.operator_chart_version
+  controller_image_tag   = var.controller_image_tag
   # enable_helm_release    = var.enable_helm_release
 
   deletion_protection            = false
