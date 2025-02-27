@@ -17,7 +17,7 @@
 
 module "wandb_infra" {
   source  = "wandb/wandb/aws"
-  version = "4.10.2"
+  version = "4.22.3"
 
   license              = var.wandb_license
   namespace            = var.namespace
