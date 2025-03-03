@@ -29,7 +29,7 @@ module "wandb_infra" {
 
   other_wandb_env = local.env_vars
 
-  # private_link_allowed_account_ids = var.private_link_allowed_account_ids
+  private_link_allowed_account_ids = var.private_link_allowed_account_ids
 
   # operator_chart_version = var.operator_chart_version
   # controller_image_tag   = var.controller_image_tag
