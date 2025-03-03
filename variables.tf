@@ -103,9 +103,7 @@ variable "allowed_inbound_ipv6_cidr" {
 variable "other_wandb_env" {
   type        = map(string)
   description = "Extra environment variables for W&B"
-  default = {
-    "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
-  }
+  default = {}
 }
 
 variable "system_reserved_cpu_millicores" {
