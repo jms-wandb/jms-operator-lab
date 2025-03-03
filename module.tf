@@ -5,7 +5,7 @@
     # "OIDC_CLIENT_ID"   = okta_app_oauth.wandb.client_id
     # "OIDC_AUTH_METHOD" = "pkce"
     "ENABLE_REGISTRY_UI" = true
-    "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
+    # "GORILLA_CORS_ORIGINS" = "https://jms-op-lab1.jms.wandb.ml, null"
     #   "GORILLA_USE_IDENTIFIER_CLAIMS" = true
       #  "GORILLA_CORS_ORIGINS"          = "https://${module.wandb_infra.url}, null"
   }
