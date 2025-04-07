@@ -145,7 +145,7 @@ variable "private_link_allowed_account_ids" {
 variable "eks_cluster_version" {
   description = "Version of EKS to deploy"
   type = string
-  default = "1.31"
+  default = "1.30"
 }
 
 # ##########################################
