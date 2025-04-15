@@ -42,7 +42,6 @@ module "wandb_infra" {
   # database_sort_buffer_size      = var.database_sort_buffer_size
   allowed_inbound_cidr           = var.allowed_inbound_cidr
   allowed_inbound_ipv6_cidr      = var.allowed_inbound_ipv6_cidr
-  eks_cluster_version            = var.eks_cluster_version
   kubernetes_public_access       = true
   kubernetes_public_access_cidrs = ["0.0.0.0/0"]
   domain_name                    = var.domain_name
@@ -57,4 +56,14 @@ module "wandb_infra" {
   # system_reserved_ephemeral_megabytes = var.system_reserved_ephemeral_megabytes
   # system_reserved_pid                 = var.system_reserved_pid
   # aws_loadbalancer_controller_tags    = var.aws_loadbalancer_controller_tags
+
+  eks_cluster_version            = var.eks_cluster_version
+  
+  eks_addon_efs_csi_driver_version = var.eks_addon_efs_csi_driver_version
+  eks_addon_ebs_csi_driver_version = var.eks_addon_ebs_csi_driver_version
+  eks_addon_coredns_version        = var.eks_addon_coredns_version
+  eks_addon_kube_proxy_version     = var.eks_addon_kube_proxy_version
+  eks_addon_vpc_cni_version        = var.eks_addon_vpc_cni_version
+  eks_addon_metrics_server_version = var.eks_addon_metrics_server_version
+
 }
