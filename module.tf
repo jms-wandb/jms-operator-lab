@@ -67,4 +67,5 @@ module "wandb_infra" {
   eks_addon_metrics_server_version = var.eks_addon_metrics_server_version
 
   create_elasticache = var.create_elasticache
+  elasticache_node_type = var.elasticache_node_type
 }
