@@ -106,6 +106,12 @@ variable "other_wandb_env" {
   default = {}
 }
 
+variable "create_elasticache" {
+  type        = bool
+  description = "Boolean indicating whether to provision an elasticache instance (true) or not (false)."
+  default     = true
+}
+
 variable "system_reserved_cpu_millicores" {
   description = "(Optional) The amount of 'system-reserved' CPU millicores to pass to the kubelet. For example: 100.  A value of -1 disables the flag."
   type        = number
