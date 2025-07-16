@@ -112,6 +112,18 @@ variable "create_elasticache" {
   default     = true
 }
 
+variable "use_external_redis" {
+  type        = bool
+  description = "Boolean indicating whether to use the redis instance created externally"
+  default     = false
+}
+
+variable "use_ctrlplane_redis" {
+  description = "Whether redis is deployed in the cluster via ctrlplane"
+  type        = bool
+  default     = false
+}
+
 variable "system_reserved_cpu_millicores" {
   description = "(Optional) The amount of 'system-reserved' CPU millicores to pass to the kubelet. For example: 100.  A value of -1 disables the flag."
   type        = number
